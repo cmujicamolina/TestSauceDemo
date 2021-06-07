@@ -1,0 +1,109 @@
+---------------------------------------------------
+--Casos de Pruebas escritos en lenguaje Gherkins.-
+---------------------------------------------------
+
+Feature: Logueo de Usuarios
+  Esta característica permite a los usuarios ingresar correctamente a
+  la ventana de logueo de Saucedemo, considerando el usuario y password
+  correctos.
+
+ 1. Scenario: Logueo correcto de usuarios validos (standard_user)
+    Este escenario consiste en usuarios validos
+    que se loguean correctamente a la portal de Saucedemo.
+
+    Given El usuario se encuentra en la pagina de Saucedemo
+    When ingresa su nombre de usuario "standard_user" al campo Username
+    And ingresa su password "secret_sauce" al campo Password
+    Then ingresa al portal de Saucedemo
+
+2.  Scenario: Logueo incorrecto de usuarios validos (standar_user)
+  Este escenario consiste en usuarios validos
+  que se loguean incorrectamente a la portal de Saucedemo.
+
+    Given El usuario se encuentra en la pagina de Saucedemo
+    When ingresa su nombre de usuario "standard_user" al campo Username
+    And ingresa su password "xxxxx" al campo Password
+    Then no ingresa al portal de Saucedimo, se visualiza mensaje de error
+
+3.  Scenario: Logueo incorrecto de usuarios validos (locked_out_user)
+  Este escenario consiste en usuarios validos
+  que se loguean incorrectamente a la portal de Saucedemo.
+
+    Given El usuario se encuentra en la pagina de Saucedemo
+    When ingresa su nombre de usuario "locked_out_user" al campo Username
+    And ingresa su password "secret_sauce" al campo Password
+    Then no ingresa al portal de Saucedimo, se visualiza mensaje de error
+
+4.  Scenario: Logueo correcto de usuarios validos (problem_user)
+  Este escenario consiste en usuarios validos
+  que se loguean correctamente a la portal de Saucedemo.
+
+    Given El usuario se encuentra en la pagina de Saucedemo
+    When ingresa su nombre de usuario "problem_user" al campo Username
+    And ingresa su password "secret_sauce" al campo Password
+    Then ingresa al portal de Saucedemo
+
+5.  Scenario: Logueo correcto de usuarios validos (performance_glitch_user)
+  Este escenario consiste en usuarios validos
+  que se loguean correctamente a la portal de Saucedemo.
+
+    Given El usuario se encuentra en la pagina de Saucedemo
+    When ingresa su nombre de usuario "performance_glitch_user" al campo Username
+    And ingresa su password "secret_sauce" al campo Password
+    Then ingresa al portal de Saucedemo
+
+Feature: Cuando el usuario una vez que ha ingresado al portal de Saucedemo
+  procede a hacer la busqueda de los productos ordenandolos según el criterio
+  del usuario y porteriormente agregarlos al carrito de comprar.
+
+ 6. Scenario: Usuario ordena los productos de la Z a la A.
+
+    Given El usuario se encuentra en la pagina de Saucedemo para hacer la compra
+    When ingresa su usuario "standard_user"
+    Then ingresa su passord "secret_sauce"
+    Then hace click en el boton de logueo
+    And ordena los productos por "Name (Z to A)"
+
+7.  Scenario: Usuario ordena los productos de la A a la Z.
+
+    Given El usuario se encuentra en la pagina de Saucedemo para hacer la compra
+    When ingresa su usuario "standard_user"
+    Then ingresa su passord "secret_sauce"
+    Then hace click en el boton de logueo
+    And ordena los productos por "Name (A to Z)"
+
+8.  Scenario: Usuario ordena los productos del precio mas bajo al mas alto.
+
+    Given El usuario se encuentra en la pagina de Saucedemo para hacer la compra
+    When ingresa su usuario "standard_user"
+    Then ingresa su passord "secret_sauce"
+    Then hace click en el boton de logueo
+    And ordena los productos por "Price (low to high)"
+
+9.  Scenario: Usuario ordena los productos del precio mas alto al mas bajo.
+
+    Given El usuario se encuentra en la pagina de Saucedemo para hacer la compra
+    When ingresa su usuario "standard_user"
+    Then ingresa su passord "secret_sauce"
+    Then hace click en el boton de logueo
+    And ordena los productos por "Price (high to low)"
+
+
+Feature: El usuario que se ha logueado al app de Saucedemo va a realizar la selección online
+  de productos y luego procede a realizar la compra en el carrito del aplicativo.
+
+10.  Scenario: El usuario selecciona los productos que va a comprar y realiza el checkout.
+
+    Given El usuario se loguea a la plataforma Saucedemo
+    When ingresa a la plataforma su usuario "standard_user"
+    Then ingresa a la plataforma su passord "secret_sauce"
+    Then selecciona backpack
+    Then selecciona bikelight
+    Then hace checkout
+    Then escribe el nombre del comprador "Christian" al formulario
+    Then escribe el apellido del comprador "Mujica" al formulario
+    Then escribe el postal "051" al formulario
+    Then hace click en el boton continue
+    And hace click en el boton finish para terminar la compra
+
+

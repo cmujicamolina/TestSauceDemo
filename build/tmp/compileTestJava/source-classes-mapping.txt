@@ -1,0 +1,18 @@
+runners/TestRunner.java
+ runners.TestRunner
+pageObjects/SortProduct.java
+ pageObjects.SortProduct
+pageObjects/LogueoSauce.java
+ pageObjects.LogueoSauce
+pageObjects/InformationCustomer.java
+ pageObjects.InformationCustomer
+pageObjects/CheckOutProduct.java
+ pageObjects.CheckOutProduct
+pageObjects/AddProduct.java
+ pageObjects.AddProduct
+steps/addShoppingProduct.java
+ steps.addShoppingProduct
+steps/logueoValidoSteps.java
+ steps.logueoValidoSteps
+steps/sortProduct.java
+ steps.sortProduct
